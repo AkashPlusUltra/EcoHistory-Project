@@ -1,0 +1,26 @@
+import pandas as pd
+from matplotlib import pyplot as plt
+
+secdata = pd.read_csv("sectdata3.csv") 
+secdata.index = reversed(range(1950,2019))
+
+graph = secdata.plot(kind = 'barh', stacked = True, figsize = (14,80))
+
+graph.set_title(label = "Sectoral Distribution from Independence to Present", fontdict = {'fontsize': 17, 'weight':'bold'}) 
+graph.set_xlabel(xlabel = "Share of GDP", fontdict = {'fontsize': 14, 'weight':'bold'})
+graph.set_ylabel(ylabel = "Year", fontdict = {'fontsize': 14, 'weight':'bold'})
+
+for rect in graph.patches: 
+  height = rect.get_height() 
+  width = rect.get_width()
+  x = rect.get_x()
+  y = rect.get_y()
+  
+  label_text = f'{width:.2f}'
+  
+  label_x = x + width / 2 
+  label_y = y + height / 2
+  
+  graph.text(label_x, label_y, label_text, ha = 'center', va = 'center', fontsize = 10, weight = 'bold') 
+
+plt.show()
