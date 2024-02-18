@@ -1,0 +1,12 @@
+import pandas as pd
+from matplotlib import pyplot as plt
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+fdset = pd.read_csv("bse.csv")
+x = fdset["Quarter"][120:140]
+y = fdset["Quarterly Close"][120:140]
+ax.plot(x, y, 'r')
+ax.set_xticks(["2010 Q1", "2011 Q1", "2012 Q1", "2013 Q1", "2014 Q1"]) 
+ax.set_title("BSE Quarterly Close from 2010 Q1 to 2014 Q4") 
+ax.set_xlabel("Year / Quarter")
+ax.set_ylabel("Quarterly Close Value (Rs.)")
