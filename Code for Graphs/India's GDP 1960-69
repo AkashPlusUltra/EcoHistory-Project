@@ -1,0 +1,11 @@
+import pandas as pd
+from matplotlib import pyplot as plt fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+fdset = pd.read_csv("gdp.csv")
+x = fdset["Year"][13:23]
+y = fdset["GDP"][13:23]
+ax.plot(x, y, '#000080')
+ax.set_title("India's GDP from 1960 to 1969")
+ax.set_xlabel("Year")
+ax.set_ylabel("GDP Values (Rs. trillion)")
+ax.set_xticks([1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969])
